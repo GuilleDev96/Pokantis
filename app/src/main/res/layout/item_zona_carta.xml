@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    android:layout_weight="1">
+
+    <!-- clContenedorCarta define la proporción de la carta (2.5 de ancho x 3.5 de alto) -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clContenedorCarta"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="2.5:3.5"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Marca de la zona (siempre visible) -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvPlaceholder"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cardBackgroundColor="#40000000"
+            app:cardCornerRadius="6dp"
+            app:cardElevation="0dp"
+            app:cardMaxElevation="0dp" />
+
+        <!-- Carta real (con un margen de 2dp para dejar ver el placeholder como borde) -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvCartaReal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:visibility="gone"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:cardCornerRadius="4dp"
+            app:cardElevation="4dp">
+
+            <ImageView
+                android:id="@+id/ivCartaZona"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY" />
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Contador minimalista con sombra para legibilidad -->
+    <TextView
+        android:id="@+id/tvContador"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="6dp"
+        android:layout_marginBottom="6dp"
+        android:elevation="6dp"
+        android:shadowColor="#FF000000"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="4"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/clContenedorCarta"
+        app:layout_constraintEnd_toEndOf="@+id/clContenedorCarta" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
